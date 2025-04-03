@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carica File Audiogramma</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("upload-form").addEventListener("submit", function(e) {
+        var fileInput = document.getElementById("file-input");
+        if (!fileInput.value) {
+          e.preventDefault();
+          alert("Nessun file selezionato. Si prega di scegliere un file.");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    </div>
+    <h1>Carica File Audiogramma</h1>
+    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+      <label for="file-input" class="file-label">Seleziona il file:</label>
+      <input type="file" name="file" id="file-input">
+      <input type="submit" value="Carica" class="submit-button">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risultato Audiogramma</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container result-container">
+    <h1>Risultato Audiogramma</h1>
+    <img src="{{ url_for('static', filename='audiogramma.png') }}" alt="Audiogramma" class="result-image">
+    <p class="patient-info">Risultati per: {{ paziente_info['Nome'] }} {{ paziente_info['Cognome'] }}</p>
+    <p class="briefing">
+      Il tuo audiogramma è stato generato correttamente. Premi il pulsante sottostante per scaricarlo.
+    </p>
+    <a href="{{ url_for('download_file', filename='report.pdf') }}" class="download-button">
+      Scarica Referto Audiometrico (PDF)
+    </a>
+  </div>
+</body>
+</html>
